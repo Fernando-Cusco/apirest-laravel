@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Usuario;
 
 class UsuarioController extends Controller
 {
@@ -34,7 +35,16 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //instanciamos nuestro modelo Usuario
+        $usuario = new Usuario;
+
+        //pasamos los datos que nos llegan a nuestro modelo
+        $usuario->correo = $request->correo;
+        $usuario->password = $request->password;
+        $usuario->codigo = rand(1, 5);
+
+        //guardamos nuestro modelo en la base de datos
+        $usuario->save();
     }
 
     /**
@@ -45,7 +55,8 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        //recuperamos de la base de datos
+        return Usuario::where('id', $id)->get();
     }
 
     /**
