@@ -17,7 +17,7 @@ class Usuario extends Migration
             $tabla->increments('id');
             $tabla->string('correo');
             $tabla->string('password');
-            $tabla->codigo('codigo');
+            $tabla->string('codigo');
             $tabla->timestamps();
         });
     }
