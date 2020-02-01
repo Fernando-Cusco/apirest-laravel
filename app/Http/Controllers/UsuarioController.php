@@ -56,7 +56,7 @@ class UsuarioController extends Controller
     public function show($id)
     {
         //recuperamos de la base de datos
-        return Usuario::where('id', $id)->get();
+        return Usuario::where('id', $id)->get('codigo');
     }
 
     /**
